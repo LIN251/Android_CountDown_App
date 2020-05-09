@@ -143,10 +143,13 @@ class MyViewModel:ViewModel() {
 
         var b = laps.value?.indexOf(a + 1)
         if (b != null) {
+            if((a - 1).toInt() != 0){
             laps.value?.remove(a - 1)
-            laps.value?.remove(a)
+            }
+            laps.value?.removeAt(b)
             laps.value?.remove(a + 1)
             laps.value?.add(b,a)
+
         }
     }
     else if(laps.value?.contains(a - 1)==true){
@@ -154,34 +157,34 @@ class MyViewModel:ViewModel() {
         var b = laps.value?.indexOf(a - 1)
         if (b != null) {
             laps.value?.remove(a + 1)
-            laps.value?.remove(a)
+            laps.value?.removeAt(b)
             laps.value?.remove(a - 1)
             laps.value?.add(b,a)
         }
 
 
     }
-    else if(laps.value?.contains(a)==true){
+//    else if(laps.value?.contains(a)==true){
 //        laps.value?.remove(a + 1)
 //        laps.value?.remove(a - 1)
 //        laps.value?.remove(a)
 //        laps.value?.add(a)
 
 
-        var b = laps.value?.indexOf(a)
-        if (b != null) {
-            laps.value?.remove(a + 1)
-            laps.value?.remove(a - 1)
-            laps.value?.remove(a)
-            laps.value?.add(b,a)
-        }
+//        var b = laps.value?.indexOf(a)
+//        if (b != null) {
+//            laps.value?.remove(a + 1)
+//            laps.value?.remove(a - 1)
+//            laps.value?.remove(a)
+//            laps.value?.add(b,a)
+//        }
 
-    }
+//    }
     else{
         laps.value?.remove(a + 1)
         laps.value?.remove(a - 1)
-        laps.value?.remove(a)
-        laps.value?.add(a)
+//        laps.value?.remove(a)
+//        laps.value?.add(a)
     }
 }
 

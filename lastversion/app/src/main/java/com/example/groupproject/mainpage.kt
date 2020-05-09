@@ -33,7 +33,7 @@ class mainpage : Fragment() {
     private var emoji = ArrayList<String>()
     private var namelist = ArrayList<String>()
     private var eventlist = ArrayList<String>()
-
+    private var tim:Long = 0
 
     val model = activity?.let { ViewModelProviders.of(it).get(MyViewModel::class.java) }
 
@@ -55,7 +55,9 @@ class mainpage : Fragment() {
         screenView = inflater.inflate(R.layout.fragment_mainpage, container, false)
         recyclerView = screenView.findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        viewAdapter = RecyclerViewAdapter(lapses, activity as MainActivity, namelist, emoji,lapses)
+        println("second "+tim)
+        viewAdapter = RecyclerViewAdapter(lapses, activity as MainActivity, namelist, emoji,lapses,tim)
+
         recyclerView.adapter = viewAdapter
 
 
@@ -86,55 +88,63 @@ class mainpage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         relax.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainpage_to_relax))
         imageButton4.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainpage_to_timerMain2))
-        imageButton.setOnClickListener{
-            geteventList22()
-            getemoList()
-            getLapsList()
-
-
-
-
-            var a = eventlist.size
-            val test: Array<String> = eventlist.toTypedArray()
-            val browserCheck = BooleanArray(a) { false }
-
-
-
-
-
-                val bunbuilder = AlertDialog.Builder(this.requireContext())
-                bunbuilder.setTitle("Event List:")
-                bunbuilder.setMultiChoiceItems(test, browserCheck, {dialog,which,isChecked->
-                    browserCheck[which] = isChecked
-                })
-                bunbuilder.setCancelable(true)
-                bunbuilder.setPositiveButton("OK"){ dialog, which ->
-                    var counter = 0
-                    var pos=0
-//                var pos2=0
-                    for (broItem in browserCheck) {
-                        if(broItem == true){
-                            counter++
-//                            title3 = eventlist.get(pos)
-//                            val model = activity?.let { ViewModelProviders.of(it).get(MyViewModel::class.java) }
-
-                            emoji.removeAt(pos)
-                            eventlist.removeAt(pos)
-                            lapses.removeAt(pos)
-                            viewAdapter.notifyDataSetChanged()
-                            println("inside"+emoji.toString())
-                            println("inside"+eventlist.toString())
-                            println("inside"+lapses.toString())
-                        }
-                        pos++
-                    }
-                }
-                var dialog = bunbuilder.create()
-                dialog.show()
-                dialog.closeOptionsMenu()
-
-
+        imageButton.setOnClickListener {
+            val intent = Intent(activity, cal::class.java)
+            startActivity(intent)
         }
+//        imageButton.setOnClickListener{
+//            geteventList22()
+//            getemoList()
+//            getLapsList()
+//
+//
+//
+//
+//            var a = eventlist.size
+//            val test: Array<String> = eventlist.toTypedArray()
+//            val browserCheck = BooleanArray(a) { false }
+//
+//
+//
+//
+//
+//                val bunbuilder = AlertDialog.Builder(this.requireContext())
+//                bunbuilder.setTitle("Event List:")
+//                bunbuilder.setMultiChoiceItems(test, browserCheck, {dialog,which,isChecked->
+//                    browserCheck[which] = isChecked
+//                })
+//                bunbuilder.setCancelable(true)
+//                bunbuilder.setPositiveButton("OK"){ dialog, which ->
+//                    var counter = 0
+//                    var pos=0
+////                var pos2=0
+//                    for (broItem in browserCheck) {
+//                        if(broItem == true){
+//                            counter++
+////                            title3 = eventlist.get(pos)
+////                            val model = activity?.let { ViewModelProviders.of(it).get(MyViewModel::class.java) }
+//
+//                            emoji.removeAt(pos)
+//                            eventlist.removeAt(pos)
+//                            tim = lapses.get(pos)
+//                            lapses.removeAt(pos)
+//                            println("first"+tim)
+//                            viewAdapter.notifyDataSetChanged()
+//                            println("inside"+emoji.toString())
+//                            println("inside"+eventlist.toString())
+//                            println("inside"+lapses.toString())
+//                        }
+//                        pos++
+//                    }
+//                }
+//                var dialog = bunbuilder.create()
+//                dialog.show()
+//                dialog.closeOptionsMenu()
+//            println("final"+emoji.toString())
+//            println("final"+eventlist.toString())
+//            println("final"+lapses.toString())
+//
+//        }
 
 
 
@@ -167,7 +177,7 @@ class mainpage : Fragment() {
     }
 
 
-    class RecyclerViewAdapter(private var myDataset: ArrayList<Long>, private val activity: MainActivity, var st:ArrayList<String>, var pts:ArrayList<String>,var time:ArrayList<Long>):RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
+    class RecyclerViewAdapter(private var myDataset: ArrayList<Long>, private val activity: MainActivity, var st:ArrayList<String>, var pts:ArrayList<String>,var time:ArrayList<Long>,var time22:Long):RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
 
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -175,16 +185,17 @@ class mainpage : Fragment() {
 //            println("final"+st.toString())
 //            println("final"+pts.toString())
 
-
-            return ViewHolder(v, activity, st, pts,time)
+            println("third "+time22)
+            return ViewHolder(v, activity, st, pts,time,time22)
         }
 
         override fun getItemCount(): Int {
+//            println("size:"+ myDataset.size)
             return myDataset.size
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.bindItems(myDataset[position], position)
+                holder.bindItems(myDataset[position], position)
         }
 
         fun updateData(a: ArrayList<Long>) {
@@ -202,20 +213,17 @@ class mainpage : Fragment() {
         }
 
 
-        class ViewHolder(private val view: View, private val activity: MainActivity, val str:ArrayList<String>, val pt:ArrayList<String>,val time:ArrayList<Long>):RecyclerView.ViewHolder(view){
+        class ViewHolder(private val view: View, private val activity: MainActivity, val str:ArrayList<String>, val pt:ArrayList<String>,val time:ArrayList<Long>,var time22:Long):RecyclerView.ViewHolder(view){
 
 
             val NOTIFICATION_CHANNEL_ID = "10001"
             fun bindItems(lap: Long, position: Int){
+                println("last "+time22)
                 val laps: TextView = itemView.findViewById(R.id.lap_value_text)
                 var lapsNumber: TextView = itemView.findViewById(R.id.lap_number_text)
                 val lapspicture: ImageView = itemView.findViewById(R.id.imageViews)
-
+//                println("laowangdatui"+time22)
 //                println("laowang"+str.toString())
-                println("final"+str.toString())
-                println("final"+pt.toString())
-                println("final"+time.toString())
-
 //                println("${position}")
                 if(pt.get("${position}".toInt()) == "p1")
                 {
@@ -276,11 +284,10 @@ class mainpage : Fragment() {
 
 
 
-
+//                println("happy"+lap.toString())
                 val timer = object: CountDownTimer(lap*1000, 1000) {
                     override fun onTick(millisUntilFinished: Long) {
-//                        println("current time: "+ millisUntilFinished/1000)
-
+//                        println("sad"+millisUntilFinished.toString())
                         laps.text = "${TimeUnit.MILLISECONDS.toHours(millisUntilFinished)}:" +
                                 "${TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)- TimeUnit.HOURS.
                                     toMinutes(TimeUnit.MILLISECONDS.toHours(millisUntilFinished))}:" +
@@ -289,6 +296,7 @@ class mainpage : Fragment() {
 //                        println(laps.text)
                         val model = activity?.let { ViewModelProviders.of(it).get(MyViewModel::class.java) }
 
+//                        println(millisUntilFinished.toString());
                         model?.removeList((millisUntilFinished/1000))
 
 //                        model?.addToLapsList(millisUntilFinished/1000)
@@ -300,7 +308,7 @@ class mainpage : Fragment() {
                        val intent = Intent()
                         val pendingIntent = PendingIntent.getActivity(activity, 0, intent, 0)
                         val notification = Notification.Builder(activity)
-                            .setSmallIcon(R.drawable.chrome)
+                            .setSmallIcon(R.drawable.ic_event_available_black_24dp)
                             .setContentTitle("Notification of the event")
                             .setContentText(lapsNumber.text.toString() + " is time up")
                         notification.setContentIntent(pendingIntent)
@@ -313,12 +321,16 @@ class mainpage : Fragment() {
                         notificationManager.createNotificationChannel(notificationChannel);
 
                         notificationManager.notify(System.currentTimeMillis().toInt(), notification.build())
-                        laps.text = "Start Working"
+                        laps.text = "Finish :)"
                     }
 
+
                 }.start()
+
+
                 //laps.text = lap.toString()
             }
+
         }
     }
 

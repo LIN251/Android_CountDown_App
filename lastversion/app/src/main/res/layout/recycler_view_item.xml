@@ -11,13 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
         <TextView
             android:id="@+id/lap_number_text"
             android:layout_width="255dp"
             android:layout_height="73dp"
             android:layout_marginEnd="16dp"
             android:text="@string/lap_button_text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="30sp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,6 +47,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/add" />
+            app:srcCompat="@drawable/add"
+            android:contentDescription="@string/todo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

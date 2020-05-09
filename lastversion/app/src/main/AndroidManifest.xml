@@ -11,11 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".browser"></activity>
-        <activity android:name=".music2" />
-        <activity android:name=".moviedetail" />
-        <activity android:name=".movie" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".cal"></activity>
+        <activity
+            android:name=".browser"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name=".music2"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name=".moviedetail"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

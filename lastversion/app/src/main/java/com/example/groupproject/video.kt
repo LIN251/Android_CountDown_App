@@ -72,7 +72,7 @@ class video : Fragment() {
             bunbuilder.setMultiChoiceItems(movie2list, arrayChecked, {dialog,which,isChecked->
                 arrayChecked[which] = isChecked
             })
-            bunbuilder.setCancelable(false)
+            bunbuilder.setCancelable(true)
             bunbuilder.setPositiveButton("OK"){ dialog, which ->
                 var counter = 0
                 var pos=0
@@ -101,7 +101,7 @@ class video : Fragment() {
             bunbuilder.setMultiChoiceItems(movie3list, arrayChecked, {dialog,which,isChecked->
                 arrayChecked[which] = isChecked
             })
-            bunbuilder.setCancelable(false)
+            bunbuilder.setCancelable(true)
             bunbuilder.setPositiveButton("OK"){ dialog, which ->
                 var counter = 0
                 var pos=0
@@ -130,7 +130,7 @@ class video : Fragment() {
             bunbuilder.setMultiChoiceItems(movie4list, arrayChecked, {dialog,which,isChecked->
                 arrayChecked[which] = isChecked
             })
-            bunbuilder.setCancelable(false)
+            bunbuilder.setCancelable(true)
             bunbuilder.setPositiveButton("OK"){ dialog, which ->
                 var counter = 0
                 var pos=0
@@ -159,7 +159,7 @@ class video : Fragment() {
             bunbuilder.setMultiChoiceItems(movie5list, arrayChecked, {dialog,which,isChecked->
                 arrayChecked[which] = isChecked
             })
-            bunbuilder.setCancelable(false)
+            bunbuilder.setCancelable(true)
             bunbuilder.setPositiveButton("OK"){ dialog, which ->
                 var counter = 0
                 var pos=0
@@ -188,7 +188,7 @@ class video : Fragment() {
             bunbuilder.setMultiChoiceItems(movie6list, arrayChecked, {dialog,which,isChecked->
                 arrayChecked[which] = isChecked
             })
-            bunbuilder.setCancelable(false)
+            bunbuilder.setCancelable(true)
             bunbuilder.setPositiveButton("OK"){ dialog, which ->
                 var counter = 0
                 var pos=0
@@ -217,7 +217,7 @@ class video : Fragment() {
             bunbuilder.setMultiChoiceItems(movie7list, arrayChecked, {dialog,which,isChecked->
                 arrayChecked[which] = isChecked
             })
-            bunbuilder.setCancelable(false)
+            bunbuilder.setCancelable(true)
             bunbuilder.setPositiveButton("OK"){ dialog, which ->
                 var counter = 0
                 var pos=0
@@ -247,7 +247,7 @@ class video : Fragment() {
             bunbuilder.setMultiChoiceItems(movie8list, arrayChecked, {dialog,which,isChecked->
                 arrayChecked[which] = isChecked
             })
-            bunbuilder.setCancelable(false)
+            bunbuilder.setCancelable(true)
             bunbuilder.setPositiveButton("OK"){ dialog, which ->
                 var counter = 0
                 var pos=0
@@ -276,7 +276,7 @@ class video : Fragment() {
             bunbuilder.setMultiChoiceItems(movie9list, arrayChecked, {dialog,which,isChecked->
                 arrayChecked[which] = isChecked
             })
-            bunbuilder.setCancelable(false)
+            bunbuilder.setCancelable(true)
             bunbuilder.setPositiveButton("OK"){ dialog, which ->
                 var counter = 0
                 var pos=0

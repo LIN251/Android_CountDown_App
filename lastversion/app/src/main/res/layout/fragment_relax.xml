@@ -20,7 +20,8 @@
             android:layout_weight="1"
             android:src="@drawable/mu"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/todo" />
         <ImageButton
             android:id="@+id/book"
             android:background="@color/book2"
@@ -29,7 +30,8 @@
             android:src="@drawable/chrome"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:contentDescription="@string/todo" />
         <ImageButton
             android:id="@+id/video"
             android:background="@color/video"
@@ -38,7 +40,8 @@
             android:layout_weight="1"
             android:src="@drawable/mo"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/todo" />
 
 
     </LinearLayout>

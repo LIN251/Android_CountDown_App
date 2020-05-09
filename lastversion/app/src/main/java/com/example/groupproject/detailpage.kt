@@ -92,7 +92,7 @@ class detailpage : Fragment() {
         }
 
         //finish.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailpage3_to_mainpage2))
-        delete.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailpage3_to_timerMain22))
+        delete.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailpage3_to_mainpage2))
 
 
         val arrayListH = ArrayList<String>()
@@ -352,7 +352,7 @@ class detailpage : Fragment() {
         val model = activity?.let { ViewModelProviders.of(it).get(MyViewModel::class.java) }
 
         finish.setOnClickListener {
-            val timer = object: CountDownTimer(((hf100.toLong()*10 + hs100.toLong())*60*60 + (mf100.toLong()*10 + ms100.toLong())*60 + sf100.toLong()*10 + ss100.toLong())*1000, 1000) {
+            object: CountDownTimer(((hf100.toLong()*10 + hs100.toLong())*60*60 + (mf100.toLong()*10 + ms100.toLong())*60 + sf100.toLong()*10 + ss100.toLong())*1000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     R.id.lap_value_text
                 }
