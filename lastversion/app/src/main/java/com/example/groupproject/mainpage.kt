@@ -132,9 +132,7 @@ class mainpage : Fragment() {
                 var dialog = bunbuilder.create()
                 dialog.show()
                 dialog.closeOptionsMenu()
-            println("final"+emoji.toString())
-            println("final"+eventlist.toString())
-            println("final"+lapses.toString())
+
 
         }
 
@@ -176,6 +174,8 @@ class mainpage : Fragment() {
             val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_item,parent,false)
 //            println("final"+st.toString())
 //            println("final"+pts.toString())
+
+
             return ViewHolder(v, activity, st, pts,time)
         }
 
@@ -212,6 +212,10 @@ class mainpage : Fragment() {
                 val lapspicture: ImageView = itemView.findViewById(R.id.imageViews)
 
 //                println("laowang"+str.toString())
+                println("final"+str.toString())
+                println("final"+pt.toString())
+                println("final"+time.toString())
+
 //                println("${position}")
                 if(pt.get("${position}".toInt()) == "p1")
                 {
